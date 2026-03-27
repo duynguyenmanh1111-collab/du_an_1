@@ -1,0 +1,18 @@
+# Bật mod_rewrite
+RewriteEngine On
+
+# Nếu dùng virtual host (.test domain), RewriteBase là /
+# Nếu dùng localhost/website_quan_ly_tour thì đổi thành /website_quan_ly_tour/
+RewriteBase /
+
+# Không rewrite nếu đã là index.php
+RewriteCond %{REQUEST_URI} !^/index\.php
+
+# Route trang chủ
+RewriteRule ^$ index.php [L,QSA]
+
+# Các đường dẫn khác (không phải file/thư mục thật) chuyển về index.php?act=...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/index\.php
+RewriteRule ^(.+)$ index.php?act=$1 [L,QSA]
