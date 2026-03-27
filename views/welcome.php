@@ -25,13 +25,13 @@ ob_start();
           Chào mừng!
         </h4>
         <p class="mb-3">
-          Đây là hệ thống quản lý tour du lịch của FPOLY HN. 
+          Đây là hệ thống quản lý tour du lịch của FPOLY HN.
           Để sử dụng đầy đủ chức năng, vui lòng đăng nhập vào hệ thống.
         </p>
         <div class="d-grid">
           <a href="<?= BASE_URL ?>login" class="btn btn-welcome">
             <i class="bi bi-box-arrow-in-right me-2"></i>
-            Đăng nhập ngay
+            Đăng nhập ngay !
           </a>
         </div>
       </div>
@@ -73,8 +73,7 @@ ob_start();
 $content = ob_get_clean();
 // Hiển thị layout auth với nội dung
 view('layouts.AuthLayout', [
-    'title' => $title ?? 'Website Quản Lý Tour Du Lịch',
-    'content' => $content,
+  'title' => $title ?? 'Website Quản Lý Tour Du Lịch',
+  'content' => $content,
 ]);
 ?>
-
